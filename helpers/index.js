@@ -1,4 +1,4 @@
-function tryCatchWrap(endpointFn) {
+function tryCatchWrapper(endpointFn) {
   return async (req, res, next) => {
     try {
       await endpointFn(req, res, next);
@@ -13,7 +13,8 @@ function HttpError(status, message) {
   err.status = status;
   return err;
 }
+
 module.exports = {
-  tryCatchWrap,
+  tryCatchWrapper,
   HttpError,
 };
