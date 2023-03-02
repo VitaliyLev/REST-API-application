@@ -22,6 +22,12 @@ const usertSchema = Schema(
       enum: ["starter", "pro", "business"],
       default: "starter",
     },
+
+    avatarURL: {
+      type: String,
+      required: true,
+    },
+
     token: String,
   },
   { versionKey: false, timestamps: true }
@@ -30,12 +36,12 @@ const usertSchema = Schema(
 const joiRegisterSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
-  password: Joi.string().min(6).required(),
+  password: Joi.string().min(10).required(),
 });
 
 const joiLoginSchema = Joi.object({
   email: Joi.string().required(),
-  password: Joi.string().min(6).required(),
+  password: Joi.string().min(10).required(),
 });
 
 const subscriptionJoiSchema = Joi.object({

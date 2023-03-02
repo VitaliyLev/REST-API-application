@@ -21,6 +21,6 @@ router.patch(
   ctrl.updateFavorite
 );
 
-router.delete("/:contactId", auth, ctrl.removeContact);
+router.delete("/:contactId", ctrl.removeContact);
 
 module.exports = router;
