@@ -9,11 +9,11 @@ const router = express.Router();
 
 router.get("/", auth, ctrl.listContacts);
 
-router.get("/:contactId", ctrl.getContactById);
+router.get("/:contactId", auth, ctrl.getContactById);
 
 router.post("/", auth, validateBody(joiSchema), ctrl.addContact);
 
-router.put("/:contactId", validateBody(joiSchema), ctrl.updateById);
+router.put("/:contactId", auth, validateBody(joiSchema), ctrl.updateById);
 
 router.patch(
   "/:contactId/favorite",
